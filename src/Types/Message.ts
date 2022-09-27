@@ -148,8 +148,9 @@ export type AnyRegularMessageContent = (
     }
 ) & ViewOnce
 
-export type AnyMessageContent = AnyRegularMessageContent | {
-	forward: WAMessage
+export type AnyMessageContent = AnyRegularMessageContent & {
+    contextInfo?: WAContextInfo
+} | {	forward: WAMessage
 	force?: boolean
 } | {
     /** Delete your message or anyone's message in a group (admin required) */
